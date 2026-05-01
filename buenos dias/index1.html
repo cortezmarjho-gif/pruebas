@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buenos Días</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #87ceeb, #ffd166, #fff3b0);
+        }
+
+        /* SOL */
+        .sol {
+            position: absolute;
+            top: 60px;
+            right: 90px;
+            width: 120px;
+            height: 120px;
+            background: #ffd60a;
+            border-radius: 50%;
+            box-shadow: 0 0 60px #ffd60a;
+            animation: girar 12s linear infinite;
+        }
+
+        .sol::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px dashed rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes girar {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* NUBES */
+        .nube {
+            position: absolute;
+            background: white;
+            width: 120px;
+            height: 60px;
+            border-radius: 50px;
+            opacity: 0.8;
+        }
+
+        .nube::before,
+        .nube::after {
+            content: "";
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .nube::before {
+            width: 60px;
+            height: 60px;
+            top: -25px;
+            left: 15px;
+        }
+
+        .nube::after {
+            width: 80px;
+            height: 80px;
+            top: -40px;
+            right: 10px;
+        }
+
+        .n1 {
+            top: 90px;
+            left: -150px;
+            animation: moverNube 18s linear infinite;
+        }
+
+        .n2 {
+            top: 180px;
+            left: -200px;
+            transform: scale(0.8);
+            animation: moverNube 25s linear infinite;
+        }
+
+        @keyframes moverNube {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(1500px);
+            }
+        }
+
+        /* CARTA */
+        .carta {
+            position: relative;
+            width: 420px;
+            padding: 35px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+            animation: subir 2s ease;
+        }
+
+        .emoji {
+            font-size: 65px;
+            animation: saltar 2s infinite;
+        }
+
+        h1 {
+            margin-top: 10px;
+            font-size: 40px;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            animation: brillo 2s infinite alternate;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+            line-height: 1.7;
+        }
+
+        .corazones {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            border-radius: 25px;
+            pointer-events: none;
+        }
+
+        .corazon {
+            position: absolute;
+            color: white;
+            font-size: 18px;
+            animation: flotar 5s linear infinite;
+        }
+
+        .corazon:nth-child(1) {
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .corazon:nth-child(2) {
+            left: 40%;
+            animation-delay: 2s;
+        }
+
+        .corazon:nth-child(3) {
+            left: 70%;
+            animation-delay: 4s;
+        }
+
+        @keyframes flotar {
+            from {
+                bottom: -20px;
+                opacity: 0;
+                transform: translateY(0) scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            to {
+                bottom: 110%;
+                opacity: 0;
+                transform: translateY(-100px) scale(1.2);
+            }
+        }
+
+        @keyframes saltar {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes brillo {
+            from {
+                text-shadow: 0 0 10px white;
+            }
+
+            to {
+                text-shadow: 0 0 25px #fff;
+            }
+        }
+
+        @keyframes subir {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sol"></div>
+
+    <div class="nube n1"></div>
+    <div class="nube n2"></div>
+
+    <div class="carta">
+
+        <div class="corazones">
+            <div class="corazon">❤</div>
+            <div class="corazon">❤</div>
+            <div class="corazon">❤</div>
+        </div>
+
+        <div class="emoji">💛</div>
+
+        <h1>Buenos Días Mi Amorcitoooo</h1>
+
+        <p>
+            Espero que hoy tengas un día hermoso ✨
+            Que todo te salga bonito, que sonrías mucho
+            y nunca olvides lo especial que eres 💖
+        </p>
+
+        <p>
+            Te mando un abrazote mañanero 🌸
+        </p>
+
+    </div>
+
+</body>
+
+</html>
